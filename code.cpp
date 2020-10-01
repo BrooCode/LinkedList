@@ -108,7 +108,19 @@ void insertFirst(int x)
     }
 }
 
-
+void rev()
+{
+	struct node *t1,*t;
+  t1=NULL;
+  while(head->next!=NULL)
+  {
+    t=head;
+    head=head->next;
+    t->next=t1;
+    t1=t;
+  }
+  head->next=t;	
+}
 
 void insertSomewhere(int x,int pos)
 {
