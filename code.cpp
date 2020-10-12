@@ -11,6 +11,7 @@ void insertFirst(int x);
 void insertLast(int x);
 void insertSomewhere(int x,int pos);
 void removeSomewhere(int x,int pos);
+void sort();
 
 
 struct node{
@@ -33,6 +34,28 @@ int main() {
     insertSomewhere(x,y);
 	display();
 	return 0;
+}
+
+void sort()
+{
+    node* temp = head; 
+  
+    while (temp) { 
+        node* min = temp; 
+        node* r = temp->next; 
+  
+        while (r) { 
+            if (min->data > r->data) 
+                min = r; 
+  
+            r = r->next; 
+        } 
+  
+        int x = temp->data; 
+        temp->data = min->data; 
+        min->data = x; 
+        temp = temp->next; 
+    } 
 }
 
 void display()
